@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /bank-core
+
+spring:
+  application:
+    name: bank-core
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    root: INFO
+    com.bank.core: INFO
